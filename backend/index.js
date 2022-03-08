@@ -1,6 +1,7 @@
 const express = require('express');
 const app= express();
 const cors = require('cors');
+const Pricing_mod = require('./classes/PricingModule');
 
 app.use(express.json({ limit: '1mb'}));
 app.use(express.static("public"));
