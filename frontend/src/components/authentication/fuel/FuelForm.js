@@ -74,7 +74,7 @@ export default function FuelForm() {
             fullWidth
             type = "Date"
             label="Delivery date"
-            {...getFieldProps('Date')}
+            {...getFieldProps('DeliveryDate')}
             InputLabelProps={{shrink:true}}
             contentEditable= {false}
             error={Boolean(touched.DeliveryDate && errors.DeliveryDate)}
