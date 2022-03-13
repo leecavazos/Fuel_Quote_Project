@@ -152,12 +152,6 @@ export default function Fuel() {
               Get a Fuel Quote
             </Typography> */}
             <Typography sx={{ color: 'text.secondary' }}>Enter how many gallons you are requesting and the delivery date.</Typography>
-            <Typography variant="subtittle 4" sx={{ mt: 3, textAlign: 'left', color: 'text.secondary' }}>
-                Looking for your previous quotes?&nbsp;
-                <Link to="/dashboard/user" component={RouterLink}>
-                  Login
-                </Link>
-              </Typography>
           </Box>
           <FuelForm/>
       </Container>
