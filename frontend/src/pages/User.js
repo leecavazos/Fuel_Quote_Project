@@ -26,16 +26,20 @@ import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dashboard/user';
-//
-import USERLIST from '../_mocks_/user';
+
+// Import mock order data
+// In next phase, will import using fetch
+import ORDERLIST from '../_mocks_/orders';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Gallons Requested', alignRight: false },
-  { Address: 'Address', label: 'Delivery Address', alignRight: false },
-  { timestampd: 'timestamp', label: 'Delivery Date', alignRight: false },
-  { role: 'role', label: 'Suggested Price', alignRight: false }
+  { orderID: 'OrderID', label: "Order", alignRight:false},
+  // { userID: 'UserID', label: 'User', alignRight: false},
+  { gallonsRequested: 'GallonsRequested', label: 'Gallons Requested', alignRight: false },
+  { deliveryAddress: 'DeliveryAddress', label: 'Delivery Address', alignRight: false },
+  { deliveryDate: 'DeliveryDate', label: 'Delivery Date', alignRight: false },
+  { suggestedPrice: 'SuggestedPrice', label: 'Suggested Price', alignRight: false }
 ];
 
 // ----------------------------------------------------------------------
@@ -64,7 +68,7 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_user) => _user.userID.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -73,9 +77,17 @@ export default function User() {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
   const [selected, setSelected] = useState([]);
-  const [orderBy, setOrderBy] = useState('name');
-  const [filterName, setFilterName] = useState('');
+  const [orderBy, setOrderBy] = useState('orderID');
+  const [filterUserID, setFilterUserID] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  // Gets the user currently logged in so only relevant rows are shown
+  //   Security-wise, probably not the best, because data for other users is
+  // technically all still loaded in, they just don't have rows on the table
+  const [userLoggedIn, setUserLoggedIn] = useState('David');
+
+  // GET ONLY THE ORDERS FROM THE RIGHT CUSTOMER
+  const RELEVANT_ORDERS = ORDERLIST.filter(x => x.userID === userLoggedIn);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -85,7 +97,7 @@ export default function User() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
+      const newSelecteds = RELEVANT_ORDERS.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -119,13 +131,13 @@ export default function User() {
     setPage(0);
   };
 
-  const handleFilterByName = (event) => {
-    setFilterName(event.target.value);
+  const handleFilterByUserID = (event) => {
+    setFilterUserID(event.target.value);
   };
 
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - RELEVANT_ORDERS.length) : 0;
 
-  const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(RELEVANT_ORDERS, getComparator(order, orderBy), filterUserID);
 
   const isUserNotFound = filteredUsers.length === 0;
 
@@ -141,8 +153,8 @@ export default function User() {
         <Card>
           <UserListToolbar
             numSelected={selected.length}
-            filterName={filterName}
-            onFilterName={handleFilterByName}
+            filterName={filterUserID}
+            onFilterName={handleFilterByUserID}
           />
 
           <Scrollbar>
@@ -152,7 +164,7 @@ export default function User() {
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
+                  rowCount={RELEVANT_ORDERS.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
@@ -161,30 +173,26 @@ export default function User() {
                   {filteredUsers
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
-                      const { id, name, role, status, timestamp, avatarUrl, isVerified } = row;
-                      const isItemSelected = selected.indexOf(name) !== -1;
-
-                      return (
+                      const { orderID, userID, gallonsRequested, deliveryAddress, deliveryDate, suggestedPrice } = row;
+                      const isItemSelected = selected.indexOf(userID) !== -1;
+                      
+                      // Return row based on ternary operation
+                      return userID === userLoggedIn ? (
                         <TableRow
                           hover
-                          key={id}
+                          key={userID}
                           tabIndex={-1}
                           selected={isItemSelected}
                         >
                           <TableCell padding="checkbox">
                           </TableCell>
-                          <TableCell component="th" scope="row" padding="none">
-                            <Stack direction="row" alignItems="center" spacing={2}>
-                              {/* <Avatar alt={name} src={avatarUrl} /> */}
-                              <Typography variant="subtitle2" noWrap>
-                                {}
-                              </Typography>
-                            </Stack>
-                          </TableCell>
-                          {/* <TableCell aling='left'>{}</TableCell>
-                          <TableCell aling='left'>{id}</TableCell>
-                          <TableCell align="left">{timestamp}</TableCell>
-                          <TableCell align="left">{role}</TableCell> */}
+
+                          {<TableCell align='left'>{orderID}</TableCell>}
+                          {/* {<TableCell align='left'>{userID}</TableCell>} */}
+                          {<TableCell align='left'>{gallonsRequested}</TableCell>}
+                          {<TableCell align='left'>{deliveryAddress}</TableCell>}
+                          {<TableCell align='left'>{deliveryDate}</TableCell>}
+                          {<TableCell align='left'>{"$"+suggestedPrice} </TableCell>}
                           {/* <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
                           {/* <TableCell align="left">
                             <Label
@@ -199,7 +207,13 @@ export default function User() {
                             {/* <UserMoreMenu /> */}
                           </TableCell>
                         </TableRow>
-                      );
+                      )
+
+                      :
+
+                      null;
+                      // End ternary operation
+
                     })}
                   {emptyRows > 0 && (
                     <TableRow style={{ height: 53 * emptyRows }}>
@@ -211,7 +225,7 @@ export default function User() {
                   <TableBody>
                     <TableRow>
                       <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <SearchNotFound searchQuery={filterName} />
+                        <SearchNotFound searchQuery={filterUserID} />
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -223,7 +237,7 @@ export default function User() {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={USERLIST.length}
+            count={RELEVANT_ORDERS.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

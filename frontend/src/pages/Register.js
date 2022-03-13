@@ -9,6 +9,7 @@ import Page from '../components/Page';
 import { MHidden } from '../components/@material-extend';
 import { RegisterForm } from '../components/authentication/register';
 import AuthSocial from '../components/authentication/AuthSocial';
+import React from 'react';
 
 // ----------------------------------------------------------------------
 
@@ -60,19 +61,7 @@ export default function Register() {
 
       <Container>
         <ContentStyle>
-          <Box sx={{ mb: 5 }}>
-            <Typography variant="h4" gutterBottom>
-              Get started absolutely free.
-            </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>
-              Free forever. No credit card needed.
-            </Typography>
-          </Box>
-
-          <AuthSocial />
-
           <RegisterForm />
-
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
             By registering, I agree to Minimal&nbsp;
             <Link underline="always" sx={{ color: 'text.primary' }}>
