@@ -1,12 +1,24 @@
 const express = require('express');
 const app= express();
+const cors = require('cors');
+const Pricing_mod = require('./classes/PricingModule');
 
-app.use(express.json());
-app.use(express.static("static"));
-app.get("/", (req, res) => {
-    res.json({ message: "Hello from server!" });
+app.use(express.json({ limit: '1mb'}));
+app.use(express.static("public"));
+app.use(cors());
+app.use('/', require('./routes/index'));
+
+//----POST REQUEST  for Registration Form ----//
+app.post('/api/Registration', (req, res) => {
+    console.log('I got a Request')
+    const info = req.body;
+    console.log(info);
+    res.json({
+        status: 'success'
+    });
+    return info
 });
 
-app.listen(3000, () => {
-    console.log(`Server listening on Port 3000`);
-  });
+app.listen(5000, () => {
+    console.log(`Server listening on Port 5000`);
+});

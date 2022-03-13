@@ -1,6 +1,7 @@
-const express = require('expredd');
-const router = express.Router();
+const express = require('express');
+router = express.Router();
+index = require("../controllers/index");
 
-
+router.get('/', index.index);
 
 module.exports = router;
