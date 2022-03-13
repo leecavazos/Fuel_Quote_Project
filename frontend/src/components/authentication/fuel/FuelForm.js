@@ -40,6 +40,17 @@ export default function FuelForm() {
     },
     validationSchema: FuelSchema,
     onSubmit: () => {
+      
+      const data = formik.values;
+      const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      };
+      fetch('/api/FuelQuote', options).then(res => {
+        console.log(res);
+      });
+
       navigate('/dashboard', { replace: true });
     }
   });
