@@ -84,12 +84,10 @@ export default function User() {
   // Gets the user currently logged in so only relevant rows are shown
   //   Security-wise, probably not the best, because data for other users is
   // technically all still loaded in, they just don't have rows on the table
-  const [userLoggedIn, setUserLoggedIn] = useState('1');
-
+  const [userLoggedIn, setUserLoggedIn] = useState('David');
 
   // GET ONLY THE ORDERS FROM THE RIGHT CUSTOMER
   const RELEVANT_ORDERS = ORDERLIST.filter(x => x.userID === userLoggedIn);
-
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
