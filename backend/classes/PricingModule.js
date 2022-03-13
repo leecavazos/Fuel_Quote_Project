@@ -1,17 +1,29 @@
-function Pricing_Module(gallons, location) {
-    this.gallons = gallons;
-    this.location = location;
-  }
-
-  Pricing_Module.prototype.setgallons = function(gallons) {
+class Pricing_Module{
+    Pricing_Module(gallons,location) {
       this.gallons = gallons;
-  };
-
-  Pricing_Module.prototype.setlocation = function(location) {
-      this.locations = location;
-  };
-
-  Pricing_Module.prototype.getPrice = function(location) {
-      // This function will get both the gallons and location from the user and will later calculate the Suggested Price
-  };
-  module.exports = Pricing_Module;
+      this.location = location;
+    }
+  
+    setgallons(gallons) {
+        this.gallons = gallons;
+    };
+  
+    setlocation(location) {
+        this.location = location;
+    };
+  
+    getGallons(){
+        return this.gallons;
+    };
+  
+    getLocation(){
+      return this.location;
+    };
+  
+    getPrice() {
+        // This function will get both the gallons and location from the user and will later calculate the Suggested Price
+      const Price = (this.gallons*3.8);
+      return Price;
+    };
+  }
+    module.exports = Pricing_Module;
