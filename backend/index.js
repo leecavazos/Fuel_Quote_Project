@@ -19,6 +19,16 @@ app.post('/api/Registration', (req, res) => {
     return info
 });
 
+app.post('/api/FuelQuote', (req, res) => {
+    console.log('I got a Request')
+    const info = req.body;
+    console.log(info);
+    res.json({
+        status: 'success'
+    });
+    return  info;
+});
+
 app.listen(5000, () => {
     console.log(`Server listening on Port 5000`);
 });
