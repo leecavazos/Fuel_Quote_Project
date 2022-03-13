@@ -66,9 +66,6 @@ export default function RegisterForm() {
         body: JSON.stringify(data)
       };
       fetch('/api/Registration', options).then(res => {
-
-        localStorage.setItem(res.firstName, JSON.stringify(res));
-
         console.log(res);
       });
       navigate('/dashboard', { replace: true });
