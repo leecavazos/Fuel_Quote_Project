@@ -2,5 +2,3 @@
 node_modules/
 .bin/
 .eslintcache
-package.json
-package-lock.json
