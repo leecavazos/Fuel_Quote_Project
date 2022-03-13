@@ -26,8 +26,10 @@ import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dashboard/user';
-//
-import USERLIST from '../_mocks_/user';
+
+// Import mock order data
+// In next phase, will import using fetch
+import ORDERLIST from '../_mocks_/orders';
 
 // ----------------------------------------------------------------------
 
@@ -86,7 +88,7 @@ export default function User() {
 
 
   // GET ONLY THE ORDERS FROM THE RIGHT CUSTOMER
-  const RELEVANT_ORDERS = USERLIST.filter(x => x.userID === userLoggedIn);
+  const RELEVANT_ORDERS = ORDERLIST.filter(x => x.userID === userLoggedIn);
 
 
   const handleRequestSort = (event, property) => {
