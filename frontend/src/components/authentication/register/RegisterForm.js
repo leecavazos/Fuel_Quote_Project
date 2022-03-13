@@ -19,10 +19,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // import { Dropdown, Menu } from 'semantic-ui-react'
+import { useGlobalContext } from "src/Global_context/GlobalContext";
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
+  const { user_signup, setLoading, displayMessage, test} = useGlobalContext();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [selectedState, setSelectedState] = useState("");
@@ -58,7 +60,17 @@ export default function RegisterForm() {
     },
 
     validationSchema: RegisterSchema,
-    onSubmit: async() => {
+    onSubmit: async({email, password}) => {
+      setLoading(true);
+      try {
+        await user_signup(email, password);
+        displayMessage("success", "Sign up successfully", 3000);
+        navigate("/dashboard/app", { replace: true });
+      } catch (e) {
+        displayMessage("warning", "Invalid", 3000);
+        console.log("there is an error while signup", e);
+      }
+      setLoading(false);
       const data = formik.values;
       const options = {
         method: 'POST',
@@ -68,7 +80,7 @@ export default function RegisterForm() {
       fetch('/api/Registration', options).then(res => {
         console.log(res);
       });
-      navigate('/dashboard', { replace: true });
+      navigate('/dashboard/app', { replace: true });
     }
   });
 

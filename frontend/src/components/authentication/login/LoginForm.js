@@ -16,10 +16,12 @@ import {
   FormControlLabel
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { useGlobalContext } from "src/Global_context/GlobalContext";
 
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
+  const { user_login, setLoading, displayMessage } = useGlobalContext();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -35,9 +37,18 @@ export default function LoginForm() {
       remember: true
     },
     validationSchema: LoginSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
-    }
+    onSubmit: async({ email, password }) => {
+      setLoading(true);
+      try {
+        await user_login(email, password);
+        displayMessage("success", "Login successfully", 3000);
+        navigate("/dashboard/app", { replace: true });
+      } catch (e) {
+        displayMessage("warning", "Invalid username or password", 3000);
+        console.log("there is an error while login", e);
+      }
+      setLoading(false);
+    },
   });
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;

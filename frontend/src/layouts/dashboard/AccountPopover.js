@@ -11,6 +11,9 @@ import { Button, Box, Divider, MenuItem, Typography, Avatar, IconButton } from '
 import MenuPopover from '../../components/MenuPopover';
 //
 import account from '../../_mocks_/account';
+import { useGlobalContext } from "src/Global_context/GlobalContext";
+import { useNavigate } from "react-router-dom";
+
 
 // ----------------------------------------------------------------------
 
@@ -35,6 +38,8 @@ const MENU_OPTIONS = [
 // ----------------------------------------------------------------------
 
 export default function AccountPopover() {
+  const navigate = useNavigate();
+  const { user_logout, setLoading, displayMessage } = useGlobalContext();
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -44,7 +49,16 @@ export default function AccountPopover() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  async function logout() {
+    try {
+      await user_logout();
+      displayMessage("success", "Logout successfully", 3000);
+      navigate("/login", { replace: true });
+    } catch (e) {
+      console.log("There was an error when logout", e);
+      displayMessage("warning", "Fail to logout", 3000);
+    }
+  }
   return (
     <>
       <IconButton
@@ -110,7 +124,7 @@ export default function AccountPopover() {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
-          <Button fullWidth color="inherit" variant="outlined">
+          <Button fullWidth color="inherit" variant="outlined" onClick={logout}>
             Logout
           </Button>
         </Box>
