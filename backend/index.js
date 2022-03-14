@@ -18,10 +18,6 @@ const Expressions = {
     DeliveryDate: /^\d{4}\-\d{2}\-\d{2}$/
 };
 
-function IsValid(input, expression){
-    return expression.test(input);
-};
-
 app.use(express.json({ limit: '1mb'}));
 app.use(express.static("public"));
 app.use(cors());
