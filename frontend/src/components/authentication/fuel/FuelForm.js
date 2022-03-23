@@ -51,7 +51,7 @@ export default function FuelForm() {
         console.log(res);
       });
 
-      navigate('/dashboard', { replace: true });
+      navigate('/dashboard/user', { replace: true });
     }
   });
 
