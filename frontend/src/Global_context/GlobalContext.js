@@ -37,7 +37,7 @@ export function GlobalContextProvider({ children }) {
     return firebase.auth().sendPasswordResetEmail(email);
   }
   function test(){
-    return firebase.database().ref().child('users').push();
+    return firebase.database().ref().child('CustData').push();
   }
   function displayMessage(type, content, timeout) {
     setIsmess(true);
