@@ -39,7 +39,7 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const navigate = useNavigate();
-  const { user_logout, setLoading, displayMessage } = useGlobalContext();
+  const { user_logout, setLoading, displayMessage, getName} = useGlobalContext();
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -92,7 +92,7 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            {account.displayName}
+            {getName()}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
             {account.email}

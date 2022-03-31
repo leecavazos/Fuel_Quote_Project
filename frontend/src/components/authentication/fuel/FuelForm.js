@@ -48,7 +48,8 @@ export default function FuelForm() {
         body: JSON.stringify(data)
       };
       fetch('/api/FuelQuote', options).then(res => {
-        console.log(res);
+        const info = res.body;
+        console.log(info);
       });
 
       navigate('/dashboard/user', { replace: true });

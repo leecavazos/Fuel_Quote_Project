@@ -12,6 +12,7 @@ import { MHidden } from '../../components/@material-extend';
 //
 import sidebarConfig from './SidebarConfig';
 import account from '../../_mocks_/account';
+import { useGlobalContext } from "src/Global_context/GlobalContext";
 
 // ----------------------------------------------------------------------
 
@@ -41,6 +42,7 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
+  const { user_logout, setLoading, displayMessage, getName} = useGlobalContext();
 
   useEffect(() => {
     if (isOpenSidebar) {

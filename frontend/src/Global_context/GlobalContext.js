@@ -36,9 +36,13 @@ export function GlobalContextProvider({ children }) {
   function resetPass(email) {
     return firebase.auth().sendPasswordResetEmail(email);
   }
-  function test(){
-    return firebase.database().ref().child('CustData').push();
+  function getName(){
+    const name = firebase.auth().currentUser.displayName;
+    return name;
   }
+  // function test(){
+  //   return firebase.database().ref().child('CustData').push();
+  // }
   function displayMessage(type, content, timeout) {
     setIsmess(true);
     setMessage({ type, content });
@@ -79,7 +83,7 @@ export function GlobalContextProvider({ children }) {
     setLoading,
     displayMessage,
     user_signup,
-    test,
+    getName,
   };
 
   return (

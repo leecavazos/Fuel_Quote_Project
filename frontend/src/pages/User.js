@@ -30,6 +30,7 @@ import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dash
 // Import mock order data
 // In next phase, will import using fetch
 import ORDERLIST from '../_mocks_/orders';
+import { parseJSON } from 'date-fns';
 
 // ----------------------------------------------------------------------
 
@@ -134,7 +135,17 @@ export default function User() {
   const handleFilterByUserID = (event) => {
     setFilterUserID(event.target.value);
   };
-
+  const options = {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify()
+  };
+    fetch("/QuoteHistory",options).then(res => res.json()).then(json=> {
+      const info = json;
+    
+      console.log(info)
+      
+    })
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - RELEVANT_ORDERS.length) : 0;
 
   const filteredUsers = applySortFilter(RELEVANT_ORDERS, getComparator(order, orderBy), filterUserID);
@@ -188,20 +199,10 @@ export default function User() {
                           </TableCell>
 
                           {<TableCell align='left'>{orderID}</TableCell>}
-                          {/* {<TableCell align='left'>{userID}</TableCell>} */}
                           {<TableCell align='left'>{gallonsRequested}</TableCell>}
                           {<TableCell align='left'>{deliveryAddress}</TableCell>}
                           {<TableCell align='left'>{deliveryDate}</TableCell>}
                           {<TableCell align='left'>{"$"+suggestedPrice} </TableCell>}
-                          {/* <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell> */}
-                          {/* <TableCell align="left">
-                            <Label
-                              variant="ghost"
-                              color={(status === 'banned' && 'error') || 'success'}
-                            >
-                              {sentenceCase(status)}
-                            </Label>
-                          </TableCell> */}
 
                           <TableCell align="right">
                             {/* <UserMoreMenu /> */}
