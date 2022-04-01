@@ -201,7 +201,7 @@ export default function User() {
                 />
                 <TableBody>
                   {filteredUsers
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .slice(page * 1, page * 1 + 1)
                     .map((row) => {
                       const { orderID, userID, gallonsRequested, deliveryAddress, deliveryDate, suggestedPrice } = row;
                       const isItemSelected = selected.indexOf(userID) !== -1;
