@@ -1,7 +1,7 @@
 import { filter } from 'lodash';
 import { Icon } from '@iconify/react';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
@@ -30,12 +30,11 @@ import { UserListHead, UserListToolbar, UserMoreMenu } from '../components/_dash
 // Import mock order data
 // In next phase, will import using fetch
 import ORDERLIST from '../_mocks_/orders';
-import { parseJSON } from 'date-fns';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { orderID: 'OrderID', label: "Order", alignRight:false},
+  // { orderID: 'OrderID', label: "Order", alignRight:false},
   // { userID: 'UserID', label: 'User', alignRight: false},
   { gallonsRequested: 'GallonsRequested', label: 'Gallons Requested', alignRight: false },
   { deliveryAddress: 'DeliveryAddress', label: 'Delivery Address', alignRight: false },
@@ -140,18 +139,38 @@ export default function User() {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify()
   };
-    fetch("/QuoteHistory",options).then(res => res.json()).then(json=> {
-      const info = json;
-    
-      console.log(info)
-      
-    })
+  async function getQuotes(){
+    const data = await fetch("/QuoteHistory",options);
+    const orders = await data.json();
+    console.log(orders)
+    setOrders(orders);
+    return orders
+  }
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - RELEVANT_ORDERS.length) : 0;
 
   const filteredUsers = applySortFilter(RELEVANT_ORDERS, getComparator(order, orderBy), filterUserID);
 
   const isUserNotFound = filteredUsers.length === 0;
-
+  
+  useEffect(() =>{
+    getQuotes();
+  },[])
+  const [Orders, setOrders] = useState();
+  // put the orders into the table
+  const rows = Orders ? Orders.map((order) => {
+    return (
+      <TableRow role="checkbox" tabIndex={-1} key={order.orderID}>
+        {/* <TableCell>
+          <Label>{order.orderID}</Label>
+        </TableCell> */}
+        <TableCell align='left'> </TableCell>
+        <TableCell align='left'>{order.Gallons}</TableCell>
+        <TableCell align='left'>{order.Address}</TableCell>
+        <TableCell align='left'>{order.DeliveryDate}</TableCell>
+        <TableCell align='left'>{"$"+ 100} </TableCell>
+      </TableRow>
+    )}) : null;
+  
   return (
     <Page title="User | Minimal-UI">
       <Container>
@@ -186,35 +205,13 @@ export default function User() {
                     .map((row) => {
                       const { orderID, userID, gallonsRequested, deliveryAddress, deliveryDate, suggestedPrice } = row;
                       const isItemSelected = selected.indexOf(userID) !== -1;
-                      
                       // Return row based on ternary operation
                       return userID === userLoggedIn ? (
-                        <TableRow
-                          hover
-                          key={userID}
-                          tabIndex={-1}
-                          selected={isItemSelected}
-                        >
-                          <TableCell padding="checkbox">
-                          </TableCell>
-
-                          {<TableCell align='left'>{orderID}</TableCell>}
-                          {<TableCell align='left'>{gallonsRequested}</TableCell>}
-                          {<TableCell align='left'>{deliveryAddress}</TableCell>}
-                          {<TableCell align='left'>{deliveryDate}</TableCell>}
-                          {<TableCell align='left'>{"$"+suggestedPrice} </TableCell>}
-
-                          <TableCell align="right">
-                            {/* <UserMoreMenu /> */}
-                          </TableCell>
-                        </TableRow>
+                        rows
                       )
-
                       :
-
                       null;
                       // End ternary operation
-
                     })}
                   {emptyRows > 0 && (
                     <TableRow style={{ height: 53 * emptyRows }}>
@@ -236,7 +233,7 @@ export default function User() {
           </Scrollbar>
 
           <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
+            rowsPerPageOptions={[1]}
             component="div"
             count={RELEVANT_ORDERS.length}
             rowsPerPage={rowsPerPage}
