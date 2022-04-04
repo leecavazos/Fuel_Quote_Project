@@ -37,8 +37,8 @@ export function GlobalContextProvider({ children }) {
     return firebase.auth().sendPasswordResetEmail(email);
   }
   function getName(){
-    const name = firebase.auth().currentUser.displayName;
-    return name;
+    // const name = firebase.auth().currentUser.displayName;
+    // return name;
   }
   // function test(){
   //   return firebase.database().ref().child('CustData').push();
