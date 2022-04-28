@@ -1,0 +1,340 @@
+/*
+	Author: Team 5 COSC3380 Spring 2022
+	Theme:  POS Web APP
+	version:  1.0;
+*/
+
+/* CSS for All */
+*{
+	margin: 0 0;
+	padding: 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Try to get the smooth scroll while moving between elements in the page*/
+html {
+	-webkit-scroll-behavior: auto !important;
+	scroll-behavior: smooth;
+}
+
+/* CSS for header (including the navbar) */
+header img {
+	height: 100px;
+	margin-left: 40px;
+}
+
+header {
+	/* border: 1px solid blue; */
+	background-color: whitesmoke;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 25px 0 black;
+	/* overflow: hidden; */
+	z-index: 10;
+}
+
+/* CSS for Order Now button */
+.order-btn {
+	vertical-align: middle;
+	top: 30%;
+	right: 16px;
+	font-size: 16px;
+	color: white;
+}
+
+header * {
+	display: inline;
+}
+
+header li {
+	margin: 20px;
+}
+
+header li a {
+	color:black;
+	font-size: large;
+	text-decoration: solid;
+}
+
+/* END CSS for header (including the navbar) */
+
+body {
+	height: 125vh;
+	margin-top: 80px;
+	padding: 30px;
+}
+
+a{
+	color: #ff7675;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover{
+	color: #d63031;
+	/* color: burlywood; */
+}
+
+/* CSS for Food Search Section */
+.food-search{
+	position: relative;
+	background-image: url(../images/refinery.jpeg);
+	/* background-size: contain; */
+	/* background-repeat: no-repeat; */
+	background-position: center;
+	justify-content: center;
+	/* width: auto;
+	height: 100%; */
+	align-items: center;
+	padding: 5% 0;
+}
+/* .food-search::before{
+	content: "";
+	position: relative;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+} */
+
+.food-search input[type="search"]{
+	position: relative;
+	width: 50%;
+	padding: 1%;
+	font-size: 1rem;
+	border: none;
+	border-radius: 5px;
+}
+/* End CSS for Food Search Section */
+
+
+.container{
+	/*use for checking container */
+	/* border: 1px solid blue; */
+	position: relative;
+	width: 80%;
+	margin: auto;
+	/* padding: 0; */
+}
+
+.menu-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.img-responsive{
+	width: 100%;
+}
+
+.img-curve{
+	border-radius: 30px;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-white{
+	color: white;
+}
+
+.clearfix{
+	clear: both;
+	float: none;
+}
+
+.btn{
+	padding: 1%;
+	border: none;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.btn-primary{
+	background-color: #d63031;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	padding: auto;
+}
+
+.btn-primary:hover{
+	/* background-color: #ff7675; */
+	background-color: black;
+	color: burlywood;
+}
+
+
+h1{
+	/* color: #636e72; */
+	text-transform: uppercase;
+	color: white;
+	background-color: #d63031;
+	padding: 1%;
+	border: none;
+	font-size: 2rem;
+	border-radius: 5px;
+}
+
+h2{
+	text-transform: uppercase;
+	color: white;
+	background-color: #d63031;
+	border: none;
+	font-size: 1.8rem;
+	border-radius: 5px;
+}
+
+.float-container{
+	position: relative;
+}
+
+.float-text{
+	position: absolute;
+	bottom: 50px;
+	left: 40%;
+}
+/* End CSS for All */
+
+/*CSS for Categories*/
+.categories{
+	/* border: 1px solid black; */
+	padding: 4% 0;
+	margin: 1%;
+}
+
+.box{
+	/* border: 1px solid black; */
+	width: 28%;
+	float: left;
+	margin: 2.5%;
+	font-style: unset;
+}
+
+.category-img {
+	opacity: 1;
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: .5s ease;
+	backface-visibility: hidden;
+}
+
+.middle {
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.box:hover .category-img {
+	opacity: 0.2;
+}
+
+.box:hover .middle {
+	opacity: 1;
+}
+
+.category-caption {
+	color: crimson;
+	font-size: 1.7rem;
+	margin-top: 2%;
+	font-weight: bold;
+}
+/*End CSS for Categories*/
+
+/*CSS for Menu*/
+.menu{
+	line-height: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2%;
+}
+
+.menu ul{
+	list-style-type: none;
+}
+
+.menu ul li{
+	display: inline-block;
+	padding: 1%;
+	font-weight: bold;
+}
+
+.item-img {
+	/* display: inline-flex; */
+	width: 100%;
+}
+
+.item-box {
+	/* position: relative; */
+	/* border: 1px solid yellowgreen; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	float: left;
+	width: 25%;
+	margin: 4%;
+	font-style: unset;
+}
+
+.menu-item {
+	/* position: relative; */
+	display:flex;
+	color:black;
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	padding-left: 1%;
+}
+
+.price {
+	background-color: #165c25;
+	font-size: 1em;
+	color: white;
+	position: absolute;
+	right: 0%;
+	padding: 0.04% 5%;
+	border: none;
+	border-radius: 2px;
+}
+
+.item-description {
+	color:rgb(36, 34, 34);
+	font-weight: bolder;
+}
+/* End CSS for Menu*/
+
+/*CSS for Footer*/
+footer {
+	box-sizing: border-box;
+	margin-bottom: auto;
+}
+.copyright {
+	/* border: 1px solid black; */
+	margin-top:15px;
+	text-align:center;
+	font-size:17px;
+	color: black;
+}
+.form_Admin{
+	padding-top: 20px;
+	background-color: rgb(199, 198, 198);
+	font-weight:bolder;
+}
+/*End CSS for Footer*/

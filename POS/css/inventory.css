@@ -1,0 +1,58 @@
+#checkLevels, #checkLevels2 {
+    display: none;
+	color: red;
+}
+
+input, label {
+    display:block;
+    width: fit-content;
+    font-size: large;
+}
+
+.item {
+    width: 45%;
+    display: inline-block;
+    margin: 0 5px;
+    margin-bottom: 2%;
+}
+
+.itemC {
+    display: inline-block;
+    margin-bottom: 4%;
+    padding: 0 5%;
+}
+
+.categoryForm {
+    padding-left: 23%;
+    padding-right: 20%;
+    padding-top: 2%;
+    margin: 0 7%;
+    background-color: #dfdfdf;
+    border-radius: 15px;
+    justify-content: center;
+}
+.productForm, .editForm {
+    padding-left: 5%;
+    padding-top: 2%;
+    margin: 0 7%;
+    background-color: #dfdfdf;
+    border-radius: 15px;
+    
+}
+
+label {
+    font-weight: 700;
+}
+
+input[type="radio"] {
+    border: solid 1px red;
+}
+
+
+.deleteProduct, .deleteCategory, .editProduct {
+    margin-top: 5%;
+}
+
+body {
+    overflow: scroll;
+}
