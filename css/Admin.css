@@ -1,0 +1,32 @@
+.welcome-text{
+    font-size: x-large;
+}
+.boxed {
+    margin-top: 20pt;
+    border: 3px solid rgb(0, 0, 0) ;
+    background-color: rgb(214, 214, 214);
+    height: 900px;
+}
+.boxed2 {
+    margin-top: 20pt;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 60pt;
+    border: 1px solid rgb(219, 219, 219) ;
+    background-color: rgb(219, 219, 219);
+    box-shadow: 5px 5px 5px rgb(0, 0, 0);
+    height: 800px;
+}
+.boxed3 {
+    margin-top: 10pt;
+    border: 3px solid rgb(0, 0, 0) ;
+    background-color: rgb(214, 214, 214);
+}
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }

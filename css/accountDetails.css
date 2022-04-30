@@ -1,0 +1,242 @@
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CSS for header (including the navbar) */
+header img {
+	height: 100px;
+	margin-left: 40px;
+}
+
+header {
+	/* border: 1px solid blue; */
+	background-color: whitesmoke;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 25px 0 black;
+	/* overflow: hidden; */
+	z-index: 10;
+}
+
+/* CSS for Order Now button */
+.order-btn {
+	position: absolute;
+	vertical-align: middle;
+	top: 30%;
+	right: 16px;
+	font-size: 16px;
+	color: white;
+}
+
+header * {
+	display: inline;
+}
+
+header li {
+	margin: 20px;
+}
+
+header li a {
+	color:black;
+	font-size: large;
+	text-decoration: solid;
+}
+
+/* END CSS for header (including the navbar) */
+
+/* The dropdown container */
+.dropdown {
+    overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .drop-btn {
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    /* float: none; */
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.btn{
+	padding: 1%;
+	border: none;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.btn-primary{
+	background-color: #d63031;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	padding: auto;
+}
+
+.btn-primary:hover{
+	/* background-color: #ff7675; */
+	background-color: black;
+	color: burlywood;
+}
+
+a{
+	color: #ff7675;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover{
+	color: #d63031;
+	/* color: burlywood; */
+}
+
+body {
+    margin: 12% 5% 5% 5%;
+	
+	
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 1%;
+}
+
+.grid-item {
+    background-color:#f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+.aboutInfo {
+    text-align: center;
+	height: fit-content;
+}
+
+#displayEmail {
+    color: grey;
+	margin-top: 0;
+}
+
+#about, h3 {
+    color: #04AA6D;
+
+}
+
+h3 {
+	margin: 1% 0 0 1%;
+
+}
+
+#about {
+	margin-top: 0;
+}
+
+.grid-container2 {
+    display: grid;
+	grid-template-rows: auto auto auto auto;
+}
+
+.grid-item2 {
+    background-color:#f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+	display: flex;
+}
+
+input {
+    display:block;
+	width: 75%;
+	padding: 10px;
+	margin-bottom: 8px;
+
+}
+
+.flex-grid {
+	display: flex;
+
+	width: 100%;
+}
+
+.col {
+	width: 50%;
+}
+
+#cancel, #update {
+	margin: 0 1% 0 1%;
+	padding: 10px 15px;
+	border-radius: 3px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#update {
+	background-color: #04AA6D;
+}
+
+#cancel {
+	background-color: grey;
+}
+
+#update:hover, #cancel:hover {
+	opacity: 0.7;
+}
+
+.buttons {
+	justify-content: center;
+	
+}
+
+hr {
+	border: rgba(179, 178, 178, 0.568) solid 1px;
+
+	
+}
+
+.name {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#confirmPassword {
+	display: none;
+	color: red;
+}
+	

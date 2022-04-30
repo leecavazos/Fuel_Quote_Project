@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin View</title>
+        <link rel="stylesheet" type="text/css" href="../css/main_page.css">
+        <link rel="stylesheet" type="text/css" href="../css/Admin.css">
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link rel="icon" type="image/x-icon" href="../images/logo.webp">
+	    <link rel="stylesheet" type="text/css" href="../css/main_page.css">
+	    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    </head>
+    <body>
+        <header>
+            <a href="">
+                <img src="../images/logo.webp">
+            </a>
+            <nav> 
+                <ul>
+                    <li><a href=""> Account</a></li>
+                    <li><a href="../index.php"> Logout</a></li>
+                </ul>
+            </nav>
+            <h1 class="text-center" style="color: black; background-color: whitesmoke;">
+                Purchase Request
+            </h1>
+        </header>
+        <section>
+            <form>
+                <div class="container">
+                    <label for="ProductID"><b>ProductID</b></label>
+                    <input type="text" placeholder="Enter ProductID" name="ID" required>
+                    <br>
+                    <label for="ProductName"><b>ProductName</b></label>
+                    <input type="text" placeholder="Enter ProductName" name="name" required>
+                    <br>
+                    <label for="Quantity"><b>Quantity</b></label>
+                    <input type="text" placeholder="Enter the Quantity" name="Num of items" required>
+                    <br>
+                    <label for="Total"><b>LineTotal</b></label>
+                    <input type="text" placeholder="Enter Total" name="total" required>
+                    <br>
+
+                    <!-- <label for="psw"><b>Password</b></label> -->
+                    <!-- <input type="password" placeholder="Enter Password" name="psw" id="passInput" required>
+                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -5%;display:inline;
+                    vertical-align: middle"></i>
+                    <script src="../js/script.js"></script> -->
+            
+                    <button type="submit" class="signup">Submit Request</button>
+                    <!-- <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label> -->
+                </div>
+            </form>
+        </section>
+    </body>
+    <footer>
+        <div class="footer-content text-center" style="margin-bottom: 10%">
+            <p class="copyright">© Designed by <a href="#">Team 5 COSC 3380 Spring 2022</a>. All rights reserved.</p>
+            <!-- <a href="index.html">Go to top.</a> -->
+        </div>
+    </footer>
+</html>
