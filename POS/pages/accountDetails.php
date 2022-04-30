@@ -52,7 +52,12 @@
                 </div>
             </li>
 
+<<<<<<< HEAD
+            <li><a href="orderHistory.php">Orders History</a></li>
+            <li><a href="checkout.php">Cart</a></li>
+=======
             <li><a href="orderHistory.php">Quote History</a></li>
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
 
             <li><a href="user.php#menu-section" class="order-btn btn btn-primary">Order Now</a></li>
         </ul>

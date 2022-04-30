@@ -10,7 +10,11 @@ function emailExists($conn, $Email) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
+<<<<<<< HEAD
+        return true;
+=======
 
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
     } else {
         $result = false;
         return $result;
@@ -28,7 +32,11 @@ function usernameExists($conn, $Username) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
+<<<<<<< HEAD
+        return true;
+=======
 
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
     } else {
         $result = false;
         return $result;
@@ -46,7 +54,12 @@ function emailExistsForOtherUser($conn, $Email, $User_ID) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
+<<<<<<< HEAD
+        $result = true;
+        return $result;
+=======
 
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
     } else {
         $result = false;
         return $result;
@@ -64,13 +77,19 @@ function usernameExistsForOtherUser($conn, $Username, $User_ID) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
+<<<<<<< HEAD
+        return true;
+=======
 
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
     } else {
         $result = false;
         return $result;
     }
 }
 
+<<<<<<< HEAD
+=======
 function productExists($conn, $Product_name) {
 
     $sql = "SELECT * FROM Product WHERE Product_name = ?;";
@@ -121,12 +140,15 @@ function categoryReferenced($conn, $Category_ID) {
         return false;
     }
 }
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;  
  }
+<<<<<<< HEAD
+=======
 
  function productNameExists($conn, $Product_name, $Product_ID) {
 
@@ -193,3 +215,4 @@ function CalculateTotal($conn, $Gallns, $User_ID, $St){
     $SuggestedPrice = $Gallns * $Margin;
     return $SuggestedPrice;
 }
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
