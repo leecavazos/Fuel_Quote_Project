@@ -10,7 +10,7 @@ function emailExists($conn, $Email) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
-
+        return true;
     } else {
         $result = false;
         return $result;
@@ -28,7 +28,7 @@ function usernameExists($conn, $Username) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
-
+        return true;
     } else {
         $result = false;
         return $result;
@@ -46,7 +46,7 @@ function emailExistsForOtherUser($conn, $Email, $User_ID) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
-
+        return true;
     } else {
         $result = false;
         return $result;
@@ -64,7 +64,7 @@ function usernameExistsForOtherUser($conn, $Username, $User_ID) {
     $result = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($result)) {
-
+        return true;
     } else {
         $result = false;
         return $result;
