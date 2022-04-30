@@ -102,9 +102,12 @@
 		</nav>
         </header>
         <section>
+<<<<<<< HEAD
             <h1 class="text-left">
                 Welcome!
             </h1>
+=======
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
         </section>
         <section class="food-search text-center">
             <span class="food-search">

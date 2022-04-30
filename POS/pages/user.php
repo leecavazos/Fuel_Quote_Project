@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
 	include('../php/loginAction.php');
+<<<<<<< HEAD
+=======
+    require_once "../php/functions.php";
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
     require_once "../php/config.php";
    	if(isset($_POST['submit'])){
 	   $UserId = $_SESSION['user_id'];
@@ -10,7 +14,11 @@
        $Estado=$_POST['state'];
        $Zip=$_POST['zip'];
 	   $Gal = $_POST['gallons'];
+<<<<<<< HEAD
 	   $Total = '0';
+=======
+	   $Total = CalculateTotal($conn,$Gal,$User, $Estado);
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
 	   $Date= $_POST['Fecha'];
 	   $stmt = $conn->prepare("INSERT INTO `Order` (User_ID, Street_delivered_to, City_delivered_to, State_delivered_to, Zip_code_delivered_to, Gallons, Order_total, Date_of_purchase) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 	   $stmt->bind_param("isssssds",$User, $St, $Ciudad, $Estado, $Zip, $Gal, $Total, $Date);
@@ -119,7 +127,11 @@
                         <label style="display: block;"> 
                             <span class="data-title">Gallons:</span>
                         </label>
+<<<<<<< HEAD
 						<input type="text" class="input_box" name="gallons" value="" required>
+=======
+                        <input type="text" class="input_box" inputmode="numeric" pattern="\d*" name="gallons" required>
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
                     </div>
                     <div class="">
                         <label style="display: block;">
@@ -143,7 +155,12 @@
                         <label style="display: block;">
                             <span class="data-title">ZipCode:</span> 
                         </label>
+<<<<<<< HEAD
                         <input type="text" class="input_box" name="zip" value="" required>
+=======
+                        <!-- <input type="text" class="input_box" name="zip" value="" required> -->
+                        <input type="text" class="input_box" inputmode="numeric" pattern="\d*" name="zip" value=""required>
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
                     </div>
                     <div class="">
                         <label style="display: block;">

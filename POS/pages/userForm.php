@@ -125,7 +125,12 @@
 
             <div class="entry">
                 <label for="Zip"><b>Zipcode:</b></label>
+<<<<<<< HEAD
                 <input type="text" name="Zip" id="Zip" placeholder="Enter Zipcode" required>
+=======
+                <!-- <input type="text" name="Zip" id="Zip" placeholder="Enter Zipcode" required> -->
+                <input type="text" inputmode="numeric" pattern="\d*" name="Zip" id="Zip" placeholder="Enter Zipcode" required>
+>>>>>>> 76e4d01d310ca07fb89ad97215125283589a664f
             </div>
 
             <div class="entry">
