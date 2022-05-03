@@ -1,0 +1,387 @@
+/*
+	Author: Lester
+	Theme:  Purchasing Manager
+	version:  1.0;
+*/
+
+/* Begin CSS for All */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+/* End CSS for All */
+
+/* Begin CSS for body */
+
+body{
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+/* End CSS for body */
+
+/* Begin CSS for sidebar */
+
+.sidebar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 78px;
+	background-color: #11101d;
+	padding: 6px 14px;
+	transition: all 0.5 ease;
+	z-index: 2;
+}
+
+.sidebar.active{
+	width: 240px;
+}
+
+.sidebar .logo_content .logo{
+	color: #fff;
+	display: flex;
+	height: 50px;
+	width: 100%;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+
+.sidebar.active .logo_content .logo{
+	opacity: 1;
+	pointer-events: none;
+}
+
+.logo_content .logo i{
+	font-size: 28px;
+	margin-right: 5px;
+}
+
+.logo_content .logo .logo_name{
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.sidebar #btn{
+	position: absolute;
+	color: #fff;
+	top: 6px;
+	left: 50%;
+	font-size: 20px;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	line-height: 50px;
+	transform: translateX(-50%);
+}
+
+.sidebar.active #btn{
+	left: 90%;
+}
+
+.sidebar ul{
+	margin-top: 20px;
+}
+
+.sidebar ul li{
+	position: relative;
+	height: 50px;
+	width: 100%;
+	margin: 0 5px;
+	list-style: none;
+	line-height: 50px;
+}
+
+.sidebar ul li .tooltip{
+	position: absolute;
+	left: 122px;
+	top: 0%;
+	transform: translate(-50%, -50%);
+	border-radius: 6px;
+	height: 35px;
+	width: 122px;
+	background: #fff;
+	line-height: 35px;
+	text-align: center;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	transition: 0s;
+	opacity: 0;
+	pointer-events: none;
+	display: block;
+	z-index: 9999;
+}
+
+.sidebar.active ul li .tooltip{
+	display: none;
+}
+
+.sidebar ul li:hover .tooltip{
+	transition: all 0.5s ease;
+	opacity: 1;
+	top: 50%;
+
+}
+
+.sidebar ul li input{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 12px;
+	outline: none;
+	border: none;
+	background: #1d1b31;
+	padding-left: 50px;
+	font-size: 18px;
+	color: #fff;
+}
+
+.sidebar ul li .bx-search{
+	position: absolute;
+	z-index: 99;
+	color: #fff;
+	font-size: 22px;
+	transition: all 0.5s ease;
+}
+
+.sidebar ul li .bx-search:hover{
+	background: #fff;
+	color: #1d1b31;
+}
+
+.sidebar ul li a{
+	color:  #fff;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	border-radius: 12px;
+	white-space: nowrap;
+}
+
+.sidebar ul li a:hover{
+	color: #11101d;
+	background: #fff;
+}
+
+.sidebar ul li i{
+	height: 50px;
+	min-width: 50px;
+	border-radius: 12px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.sidebar .links_name{
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+
+.sidebar.active .links_name{
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.sidebar .profile_content{
+	position: absolute;
+	color: #fff;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.sidebar .profile_content .profile{
+	position: relative;
+	padding: 10px 6px;
+	height: 60px;
+	background: none;
+	transition: all 0.4s ease;
+}
+
+.sidebar.active .profile_content .profile{
+	background: #1d1b31;
+}
+
+.profile_content .profile .profile_details{
+	display: flex;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+.sidebar.active .profile .profile_details{
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.profile .profile_details .name_job{
+	margin-left: 10px;
+}
+
+.profile .profile_details .name{
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.profile .profile_details .job{
+	font-size: 12px;
+}
+
+.profile #log_out{
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	border-radius: 12px;
+	text-align: center;
+	transition: all 0.4s ease;
+	background: #1d1b31;
+
+}
+
+.sidebar.active .profile #log_out{
+	left: 88%;
+}
+
+.sidebar.active .profile #log_out{
+	background: none;
+}
+
+/* End CSS for sidebar */
+
+
+/* Begin CSS for Home Content */
+
+/*.home_content{
+	position: absolute;
+	height: 100%;
+	width: calc(100% - 78px);
+	left: 78px;
+	transition: all 0.5s ease;
+}
+
+.home_content .text{
+	font-size: 25px;
+	font-weight: 500;
+	color: #1d1b31;
+	margin: 12px;
+}*/
+
+/*Begin Dashboard Overview CSS*/
+.sidebar.active ~ .home_content{
+	width: calc(100% - 240px);
+	left: 240px;
+}
+
+.dashboard .dash-content{
+	position: absolute;
+	height: 100%;
+	width: calc(100% - 78px);
+	left: 78px;
+	transition: all 0.5s ease;
+
+}
+
+.sidebar.active ~ .dashboard .dash-content{
+	width: calc(100% - 240px);
+	left: 240px;
+}
+
+.dash-content .title{
+	display: flex;
+	align-items: center;
+	margin: 5px 0 30px;
+}
+
+.dash-content .title i{
+	position: relative;
+	height: 35px;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+}
+
+.dash-content .title .text{
+	font-size: 24px;
+	font-weight: 500;
+	margin-left: 10px;
+}
+
+.dash-content .boxes{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 30px;
+}
+
+.dash-content .boxes .box{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 24px;
+	width: calc(100% / 3 - 15px);
+	padding: 15px 20px;
+	background-color: #55efc4;
+	transition: all 0.5s ease;
+}
+
+.boxes .box i{
+	font-size: 35px;
+	color: #000;
+}
+
+.boxes .box .text{
+	white-space: nowrap;
+	font-size: 18px;
+	font-weight: 500;
+	color: #000;
+}
+
+.boxes .box .number{
+	font-size: 40px;
+	font-weight: 500;
+	color: #000;
+}
+
+.boxes .box.box2{
+	background-color: #ffeaa7;
+}
+
+.boxes .box.box3{
+	background-color: #fd79a8;
+}
+
+
+@media (max-width: 780px) {
+	.dash-content .boxes .box{
+		width: calc(100% / 2 - 15px);
+		margin-top: 15px;
+	}
+}
+@media (max-width: 560px) {
+	.dash-content .boxes .box{
+		width: 100%;
+	}
+}
+/*End Dashboard Overview CSS*/
+
+
+/* End CSS for Home Content */

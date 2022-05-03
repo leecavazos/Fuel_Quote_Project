@@ -1,0 +1,114 @@
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    display: inline-block;
+    width: 95%;
+    border: none;
+    background: #f1f1f1;
+    margin: 0 15px 10px 15px;
+    padding: 10px;
+    font-size: large;
+}
+
+label {
+    display:block;
+    padding-left: 15px;
+    font-size: large;
+}
+
+body {
+    margin: 10% 50px 50px 50px;
+    padding: 25px;
+    border: #f1f1f1 solid;
+    
+}
+
+hr{
+    width: 100%;
+    border: 1px solid #f1f1f1;
+    margin: 25px 0 25px 0;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: x-large;
+}
+
+input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.head {
+    padding-left: 15px;
+}
+
+/* CSS for header (including the navbar) */
+header img {
+	height: 100px;
+	margin-left: 40px;
+}
+
+header {
+	/* border: 1px solid blue; */
+	background-color: whitesmoke;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 25px 0 black;
+	/* overflow: hidden; */
+	z-index: 10;
+}
+
+/* CSS for Order Now button */
+.order-btn {
+	position: absolute;
+	vertical-align: middle;
+	top: 30%;
+	right: 16px;
+	font-size: 16px;
+	color: white;
+}
+
+header * {
+	display: inline;
+}
+
+header li {
+	margin: 20px;
+}
+
+header li a {
+	color:black;
+	font-size: large;
+	text-decoration: solid;
+}
+
+/* END CSS for header (including the navbar) */
+
+a{
+	color: #ff7675;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover{
+	color: #d63031;
+	/* color: burlywood; */
+}
