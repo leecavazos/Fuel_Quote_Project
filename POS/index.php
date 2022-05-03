@@ -6,11 +6,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>POS Team 5</title>
+	<title>Team 16</title>
 
 	<!-- Link to css file -->
 	<link rel="stylesheet" type="text/css" href="css/main_page.css">
-	<link rel="icon" type="image/x-icon" href="images/logo.webp">
+	<link rel="icon" type="image/x-icon" href="images/fuelpump.jpeg">
 </head>
 
 <!-- Set body id = "top", in case want to go to the top of the page smoothly (using smooth behavior in css) -->

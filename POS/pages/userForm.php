@@ -2,16 +2,17 @@
 <html>
 
 <head>
+    <title>Team 16</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/signup.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="icon" type="image/x-icon" href="../images/logo.webp">
+    <link rel="icon" type="image/x-icon" href="../images/fuelpump.jpeg">
 </head>
 
 <header>
 		<a href="../index.php">
-			<img src="../images/logo.webp">
+			<img src="../images/fuelpump.jpeg">
 		</a>
 		<!-- Navbar Starts -->
 		<nav>
@@ -33,12 +34,12 @@
         <div class="container">
             <div class="entry">
                 <label for="First_name"><b>First name:</b></label>
-                <input type="text" name="First_name" id="First_name" placeholder="Enter first name" required>
+                <input type="text" name="First_name" id="First_name" placeholder="Enter first name" maxlength="50"required>
             </div>
 
             <div class="entry">
                 <label for="Last_name"><b>Last name:</b></label>
-                <input type="text" name="Last_name" id="Last_name" placeholder="Enter last name" required>
+                <input type="text" name="Last_name" id="Last_name" placeholder="Enter last name" maxlength="50" required>
             </div>
 
             <div class="entry">
@@ -52,18 +53,18 @@
             </div>
 
             <div class="entry">
-                <label for="Street_address"><b>Street address:</b></label>
-                <input type="text" name="Street_address" id="Street_address" placeholder="Enter street address" required>
+                <label for="Street_address"><b>Address1:</b></label>
+                <input type="text" name="Street_address" id="Street_address" placeholder="Enter street address" maxlength="100" required>
             </div>
 
             <div class="entry">
-                <label for="APT"><b>APT:</b></label>
-                <input type="text" name="APT" id="APT" placeholder="Enter apartment number" >
+                <label for="APT"><b>Address 2:</b></label>
+                <input type="text" name="APT" id="APT" placeholder="Enter street address" maxlength="100" >
             </div>
 
             <div class="entry">
                 <label for="City"><b>City:</b></label>
-                <input type="text" name="City" id="City" placeholder="Enter city" required>
+                <input type="text" name="City" id="City" placeholder="Enter city" maxlength="100" required>
             </div>
 
             <div class="entry">
@@ -126,7 +127,7 @@
             <div class="entry">
                 <label for="Zip"><b>Zipcode:</b></label>
                 <!-- <input type="text" name="Zip" id="Zip" placeholder="Enter Zipcode" required> -->
-                <input type="text" inputmode="numeric" pattern="\d*" name="Zip" id="Zip" placeholder="Enter Zipcode" required>
+                <input type="text" inputmode="numeric" pattern="\d*" name="Zip" id="Zip" placeholder="Enter Zipcode" minlength="5" maxlength="9"required>
             </div>
 
             <div class="entry">
