@@ -21,12 +21,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>POS Team 5</title>
+    <title>Team 16</title>
     <link rel="stylesheet" type="text/css" href="../css/user.css">
     <link rel="stylesheet" type="text/css" href="../css/accountDetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="icon" type="image/x-icon" href="../images/logo.webp">
+    <link rel="icon" type="image/x-icon" href="../images/fuelpump.jpeg">
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 </head>
 

@@ -4,6 +4,15 @@
 	include('../php/loginAction.php');
     require_once "../php/functions.php";
     require_once "../php/config.php";
+
+    $UserId = $_SESSION['user_id'];
+    $sql = "SELECT * FROM `User` WHERE User_ID = '$UserId'";
+    $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    $row=mysqli_fetch_assoc($result);
+    $Addy=$row['Street_address'];
+    $State=$row['State'];
+    $Zip=$row['Zip'];
+    $City=$row['City'];
    	if(isset($_POST['submit'])){
 	   $UserId = $_SESSION['user_id'];
 	   $User = $UserId;
@@ -59,14 +68,14 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>POS Team 5</title>
+	<title>Team 16</title>
 
 	<!-- Link to css file -->
 	<link rel="stylesheet" type="text/css" href="../css/main_page.css">
     <link rel="stylesheet" type="text/css" href="../css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link rel="icon" type="image/x-icon" href="../images/logo.webp">
+	<link rel="icon" type="image/x-icon" href="../images/fuelpump.jpeg">
 	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -128,26 +137,78 @@
                         <label style="display: block;">
                             <span class="data-title">Address:</span>
                         </label>
-                        <input type="text" class="input_box" name="street" value="" required>
+                        <input type="text" class="input_box" name="street" value="<?php echo $Addy;?>" readonly required>
                     </div>
                     <div class="">
 						<label style="display: block;">
 							<span class="data-title">City:</span> 
 						</label>
-                        <input type="text" class="input_box" name="city" value="" required>
+                        <input type="text" class="input_box" name="city" value="<?php echo $City;?>" readonly required>
                     </div>
                     <div class="">
                         <label style="display: block;">
                             <span class="data-title">State:</span> 
                         </label>
-                        <input type="text" class="input_box" name="state" value="" required>
+                        <!-- <select name="state" id="State" selected="<?php echo $State;?>">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select> -->
+                        <input type="text" class="input_box" name="state" value="<?php echo $State;?>" readonly required>
                     </div>
                     <div class="">
                         <label style="display: block;">
                             <span class="data-title">ZipCode:</span> 
                         </label>
                         <!-- <input type="text" class="input_box" name="zip" value="" required> -->
-                        <input type="text" class="input_box" inputmode="numeric" pattern="\d*" name="zip" value=""required>
+                        <input type="text" class="input_box" inputmode="numeric" pattern="\d*" name="zip" value="<?php echo $Zip;?>" readonly required>
                     </div>
                     <div class="">
                         <label style="display: block;">

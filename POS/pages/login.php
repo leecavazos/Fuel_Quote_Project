@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
 <head>
-
+	<title>Team 16</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="icon" type="image/x-icon" href="../images/logo.webp">
+    <link rel="icon" type="image/x-icon" href="../images/fuelpump.jpeg">
 	<link rel="stylesheet" type="text/css" href="../css/main_page.css">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<script src="../js/script.js"></script>
@@ -14,7 +14,7 @@
 <body id="#top">
 	<header>
 		<a href="../index.php">
-			<img src="../images/logo.webp">
+			<img src="../images/fuelpump.jpeg">
 		</a>
 		<!-- Navbar Starts -->
 		<nav>
