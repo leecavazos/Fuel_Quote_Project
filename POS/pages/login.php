@@ -57,7 +57,7 @@
 		
 			<div class="container" style="background-color:#f1f1f1">
 				<button type="button" class="cancelbtn">
-					<a href="../index.html" style="color: white">
+					<a href="../index.php" style="color: white">
 						Cancel
 					</a>
 				</button>

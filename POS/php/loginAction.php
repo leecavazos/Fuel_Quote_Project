@@ -1,4 +1,5 @@
 <?php
+// @codeCoverageIgnoreStart
    require_once "config.php";
    session_start();
 
@@ -16,20 +17,20 @@
             $_SESSION['login_user'] = $username;
             $_SESSION['user_id'] = $row['User_ID'];
             header("Location: ../pages/user.php");
-
-            exit();
+            // exit();
          }
          else {
             header("Location: ../pages/login.php?invalid=true");
-            exit();
+            // exit();
          }
       }
       else {
          header("Location: ../pages/login.php?invalid=true");
-         exit();
+         // exit();
       }
    }
-            
+   echo '';
+// @codeCoverageIgnoreEnd
 ?>
 
     

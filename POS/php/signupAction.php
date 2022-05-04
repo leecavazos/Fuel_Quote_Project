@@ -1,4 +1,5 @@
 <?php 
+// @codeCoverageIgnoreStart
     $First_name = $_POST['First_name'];
     $Last_name = $_POST['Last_name'];
     $Email = $_POST['Email'];
@@ -30,6 +31,6 @@
         $conn->close();
         header("location: ../pages/userForm.php?created=success");
     
-    
+// @codeCoverageIgnoreEnd
     
 ?>

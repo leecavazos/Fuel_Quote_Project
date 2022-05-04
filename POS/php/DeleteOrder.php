@@ -1,5 +1,6 @@
 <?php
-   include "config.php";
+// @codeCoverageIgnoreStart
+   include_once "config.php";
    if(isset($_GET['deleteOrder'])){
       $id=$_GET['deleteOrder'];
       $sql="DELETE FROM `Order` WHERE `Order_ID` = $id";
@@ -12,4 +13,5 @@
          die(mysqli_error($conn));
       }
    }
+// @codeCoverageIgnoreEnd
 ?>

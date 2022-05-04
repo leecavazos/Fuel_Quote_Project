@@ -1,5 +1,6 @@
 <?php
-   include "config.php";
+// @codeCoverageIgnoreStart
+   include_once "config.php";
    $ID =$_GET['editOrder'];
 
    $sql = "SELECT * FROM `Order` WHERE Order_ID = '$ID'";
@@ -25,7 +26,9 @@
            die(mysqli_error($conn));
        }
    }
+// @codeCoverageIgnoreEnd
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>

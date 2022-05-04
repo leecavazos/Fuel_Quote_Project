@@ -1,4 +1,5 @@
 <?php 
+    // @codeCoverageIgnoreStart
     $User_ID = $_POST['User_ID'];
     $First_name = $_POST['First_name'];
     $Last_name = $_POST['Last_name'];
@@ -18,11 +19,12 @@
     
         if(emailExistsForOtherUser($conn, $Email, $User_ID) !== false) {
             header("location: ../pages/accountDetails.php?invalid=email");
-            exit();
+            echo 'Email exists';
+            // exit('');
         }
         if(usernameExistsForOtherUser($conn, $Username, $User_ID) !== false) {
             header("location: ../pages/accountDetails.php?invalid=username");
-            exit();
+            // exit('');
         }
         $stmt = $conn->prepare("UPDATE User SET User_ID = ?, First_name = ?, Last_name = ?, Email = ?, Phone_number = ?, Street_address = ?, APT = ?, City = ?, State = ?, Zip = ?, Username = ?, Password = ? WHERE User_ID = ?");
         $stmt->bind_param("isssssssssssi", $User_ID, $First_name, $Last_name, $Email, $Phone_number, $Street_address, $APT, $City, $State, $Zip, $Username, $Password, $User_ID);
@@ -30,4 +32,5 @@
         $stmt->close();
         $conn->close();
         header("location: ../pages/accountDetails.php?created=success");
+    // @codeCoverageIgnoreStart
 ?>

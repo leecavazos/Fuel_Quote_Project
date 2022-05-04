@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+// @codeCoverageIgnoreStart
 	include('../php/loginAction.php');
     require_once "../php/functions.php";
     require_once "../php/config.php";
@@ -14,6 +15,7 @@
 	   $Total = CalculateTotal($conn,$Gal,$User, $Estado);
 	   $Date= $_POST['Fecha'];
 	   $stmt = $conn->prepare("INSERT INTO `Order` (User_ID, Street_delivered_to, City_delivered_to, State_delivered_to, Zip_code_delivered_to, Gallons, Order_total, Date_of_purchase) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+       print_r($conn->error_list);
 	   $stmt->bind_param("isssssds",$User, $St, $Ciudad, $Estado, $Zip, $Gal, $Total, $Date);
 	   $stmt->execute();
 	   $Order_ID = $stmt->insert_id;
@@ -28,7 +30,7 @@
     //        die(mysqli_error($conn));
     //    }
    	}
-
+// @codeCoverageIgnoreEnd
 ?>
 
 <html lang="en">

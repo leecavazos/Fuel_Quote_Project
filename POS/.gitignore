@@ -1,4 +1,6 @@
 .DS_Store
 
+*.cache
+
 # File used to keep server running
 nohup.out
