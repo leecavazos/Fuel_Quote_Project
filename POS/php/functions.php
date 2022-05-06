@@ -71,59 +71,6 @@ function usernameExistsForOtherUser($conn, $Username, $User_ID) {
     }
 }
 
-<<<<<<< HEAD
-=======
-// function productExists($conn, $Product_name) {
-
-//     $sql = "SELECT * FROM Product WHERE Product_name = ?;";
-//     $stmt = mysqli_stmt_init($conn);
-//     mysqli_stmt_prepare($stmt, $sql);
-//     mysqli_stmt_bind_param($stmt, "s", $Product_name);
-//     mysqli_stmt_execute($stmt);
-
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     if(mysqli_fetch_assoc($result)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// function categoryExists($conn, $Category_name) {
-
-//     $sql = "SELECT * FROM Category WHERE Category_name = ?;";
-//     $stmt = mysqli_stmt_init($conn);
-//     mysqli_stmt_prepare($stmt, $sql);
-//     mysqli_stmt_bind_param($stmt, "s", $Category_name);
-//     mysqli_stmt_execute($stmt);
-
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     if(mysqli_fetch_assoc($result)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// function categoryReferenced($conn, $Category_ID) {
-
-//     $sql = "SELECT * FROM Product WHERE Category_ID= ?;";
-//     $stmt = mysqli_stmt_init($conn);
-//     mysqli_stmt_prepare($stmt, $sql);
-//     mysqli_stmt_bind_param($stmt, "i", $Category_ID);
-//     mysqli_stmt_execute($stmt);
-
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     if(mysqli_fetch_assoc($result)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-//}
->>>>>>> ea747906de195cef5b6eb11206fb01a275ac2f5f
 function validate($data){
     $data = trim($data);
     $data = stripslashes($data);
@@ -131,25 +78,6 @@ function validate($data){
     return $data;  
  }
 
-<<<<<<< HEAD
-=======
-//  function productNameExists($conn, $Product_name, $Product_ID) {
-
-//     $sql = "SELECT * FROM Product WHERE Product_name = ? AND NOT Product_ID = ?;";
-//     $stmt = mysqli_stmt_init($conn);
-//     mysqli_stmt_prepare($stmt, $sql);
-//     mysqli_stmt_bind_param($stmt, "si", $Product_name, $Product_ID);
-//     mysqli_stmt_execute($stmt);
-
-//     $result = mysqli_stmt_get_result($stmt);
-
-//     if(mysqli_fetch_assoc($result)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
->>>>>>> ea747906de195cef5b6eb11206fb01a275ac2f5f
 
 function PreviousQuotes($conn, $User_ID){
     //SQL Query HERE//
