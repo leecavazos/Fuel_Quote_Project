@@ -1,4 +1,4 @@
-# 4353_Project
+# Fuel Quote Project
 Overview:
 
 This is a class project for COSC 4353 Software Design. 
